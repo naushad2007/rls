@@ -1,7 +1,9 @@
-import themeConfig from '../config/theme';
-import { createContext, FC, useEffect, useState } from 'react';
+import { createContext, FC, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 
-type ThemeOptions = 'Dark' | 'Light' | 'AMOLED';
+import { themeAtom } from '@/atoms/theme';
+import themeConfig from '@/config/theme';
+import { ThemeOptions } from '@/types/theme';
 
 interface ThemeState {
   theme: ThemeOptions;
@@ -16,7 +18,7 @@ const defaultState: ThemeState = {
 export const ThemeContext = createContext(defaultState);
 
 export const ThemeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeOptions>('Dark');
+  const [theme, setTheme] = useRecoilState(themeAtom);
 
   useEffect(() => {
     const themeConfigElement = themeConfig[theme];
