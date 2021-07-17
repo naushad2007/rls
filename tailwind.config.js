@@ -1,10 +1,12 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   purge: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './modals/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: false,
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {
@@ -26,5 +28,17 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const flexCentered = {
+        '.flex-centered': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      };
+
+      addUtilities(flexCentered);
+    }),
+  ],
 };

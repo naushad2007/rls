@@ -16,11 +16,14 @@
     "jsx": "preserve",
     "paths": {
       "@/atoms/*": ["atoms/*"],
+      "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
       "@/context/*": ["context/*"],
+      "@/modals/*": ["modals/*"],
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

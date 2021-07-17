@@ -1,0 +1,45 @@
+.button {
+  padding: 6px 16px;
+
+  @apply text-sm flex-centered;
+  @apply relative font-semibold border rounded cursor-pointer;
+  @apply bg-primary-900 border-primary-900 text-primary-50;
+  @apply transition-colors duration-200 ease-in-out;
+}
+
+.button:hover {
+  @apply bg-primary-700 border-primary-700;
+  @apply transition-colors duration-200 ease-in-out;
+}
+
+.button:active {
+  top: 1px;
+}
+
+.button:focus {
+  @apply outline-none;
+}
+
+.button.outline {
+  @apply bg-transparent border border-primary-900 text-primary-900;
+}
+
+.button.outline:hover {
+  @apply bg-primary-200;
+}
+
+.button.outline:focus {
+  @apply outline-none;
+}
+
+.button.remove {
+  @apply text-white bg-red-600 border-red-600;
+}
+
+.button.remove:hover {
+  @apply bg-red-700 border-red-700;
+}
+
+.button.remove:focus {
+  @apply outline-none;
+}

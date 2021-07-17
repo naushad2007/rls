@@ -1,0 +1,24 @@
+.modal {
+  @apply w-full md:w-3/4 lg:w-1/2;
+  @apply p-8 m-6 rounded shadow bg-primary-50;
+  @apply focus:outline-none;
+  @apply grid gap-6;
+}
+
+.modal main {
+  @apply grid gap-4;
+}
+
+.modal footer {
+  @apply flex gap-4;
+}
+
+.modal h1 {
+  @apply text-xl font-semibold;
+}
+
+.overlay {
+  @apply flex-centered;
+  @apply fixed inset-0;
+  @apply bg-black bg-opacity-60;
+}
