@@ -9,10 +9,9 @@ import LogoProps from '@/types/components/Logo';
 const Logo: FC<LogoProps> = ({ size = 512, className }) => {
   return (
     <Link href="/">
-      <a>
+      <a className={cx('shadow hover:shadow-lg', className)}>
         <Image
           src={LogoImage}
-          className={cx('shadow hover:shadow-lg', className)}
           alt="Reactive Resume Logo"
           width={size}
           height={size}

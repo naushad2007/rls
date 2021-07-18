@@ -6,9 +6,15 @@ module.exports = {
     './modals/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'media',
+  darkMode: false,
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
+      cursor: {
+        'context-menu': 'context-menu',
+      },
       colors: {
         primary: {
           50: 'var(--color-primary-50)',
