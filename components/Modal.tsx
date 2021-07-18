@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { MdClose } from 'react-icons/md';
 import ReactModal from 'react-modal';
 
-import styles from './Modal.module.css';
-import ModalProps from './types';
+import styles from '@/styles/components/Modal.module.css';
+import ModalProps from '@/types/components/Modal';
 
 const Modal: FC<ModalProps> = ({ isOpen, setOpen, title, children }) => {
   const handleClose = () => setOpen(false);

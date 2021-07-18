@@ -3,3 +3,8 @@ export default interface ModalProps {
   isOpen: boolean;
   setOpen: (isOpen: boolean) => void;
 }
+
+export interface DataModalProps extends ModalProps {
+  onReset?: () => void;
+  onSubmit?: () => void;
+}

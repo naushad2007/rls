@@ -1,9 +1,10 @@
 import React from 'react';
 import { FC } from 'react';
 
-import Button from '../Button';
-import Modal from '../Modal';
-import DataModalProps from './types';
+import { DataModalProps } from '@/types/components/Modal';
+
+import Button from './Button';
+import Modal from './Modal';
 
 const DataModal: FC<DataModalProps> = ({
   title,

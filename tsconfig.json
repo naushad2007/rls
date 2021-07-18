@@ -21,6 +21,7 @@
       "@/context/*": ["context/*"],
       "@/modals/*": ["modals/*"],
       "@/pages/*": ["pages/*"],
+      "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]

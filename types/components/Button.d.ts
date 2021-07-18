@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons/lib';
+import { IconType } from 'react-icons';
 
 export default interface ButtonProps {
   icon?: IconType;

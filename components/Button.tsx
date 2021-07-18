@@ -1,10 +1,9 @@
 import cx from 'classnames';
 import { FC } from 'react';
 
+import styles from '@/styles/components/Button.module.css';
+import ButtonProps from '@/types/components/Button';
 import { handleKeyUp } from '@/utils/index';
-
-import styles from './Button.module.css';
-import ButtonProps from './types';
 
 const Button: FC<ButtonProps> = ({
   children,
