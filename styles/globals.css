@@ -1,7 +1,7 @@
 html,
 body {
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @apply bg-primary-50 text-primary-900;
   @apply transition-colors duration-200 ease-in-out;
