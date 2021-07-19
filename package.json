@@ -1,6 +1,9 @@
 {
   "name": "reactive-resume",
   "version": "3.0.0",
+  "description": "A free and open-source ",
+  "author": "Amruth Pillai <im.amruth@gmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "commit": "cz",

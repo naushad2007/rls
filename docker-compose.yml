@@ -1,6 +1,19 @@
-version: '3'
+version: '3.9'
 
 services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: reactive-resume
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - database:/data/db
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   app:
     build: .
     container_name: app
@@ -10,3 +23,6 @@ services:
       - .:/usr/src/app
       - /usr/src/app/.next
       - /usr/src/app/node_modules
+
+volumes:
+  database:
