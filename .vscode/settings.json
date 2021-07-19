@@ -1,13 +1,9 @@
 {
-  "css.validate": false,
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
   "eslint.format.enable": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.workingDirectories": [
+    "apps/app",
+    "apps/server",
+  ],
+  "git.ignoreLimitWarning": true
 }

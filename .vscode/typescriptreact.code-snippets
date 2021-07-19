@@ -1,0 +1,16 @@
+{
+	"Import CSS Module in React Component": {
+		"prefix": "imcss",
+		"description": "Import CSS Module in React Component",
+		"body": [
+			"import styles from '@/styles/components/$TM_FILENAME_BASE.module.css';"
+		]
+	},
+	"Import Types as Props in React Component": {
+		"prefix": "imtypes",
+		"description": "Import Types as Props in React Component",
+		"body": [
+			"import ${TM_FILENAME_BASE}Props from '@/types/components/$TM_FILENAME_BASE';"
+		]
+	}
+}

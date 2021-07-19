@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Reactive-Resume.iml" filepath="$PROJECT_DIR$/.idea/Reactive-Resume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/reactive-resume.iml" filepath="$PROJECT_DIR$/.idea/reactive-resume.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "projects": {
+    "app": "apps/app",
+    "server": "apps/server"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  }
+}
