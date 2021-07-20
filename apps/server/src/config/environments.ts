@@ -3,7 +3,9 @@ import * as Joi from 'joi';
 const validationSchema = Joi.object({
   JWT_SECRET: Joi.string().required(),
   JWT_EXPIRATION_TIME: Joi.number().required(),
-  SESSION_SECRET: Joi.string().required(),
+
+  GOOGLE_CLIENT_ID: Joi.string(),
+  GOOGLE_CLIENT_SECRET: Joi.string(),
 
   POSTGRES_HOST: Joi.string().default('localhost'),
   POSTGRES_PORT: Joi.number().default(5432),

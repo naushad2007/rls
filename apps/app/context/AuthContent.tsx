@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Router from 'next/router';
 import { createContext, FC } from 'react';
 import { useRecoilState } from 'recoil';
 
@@ -6,28 +7,16 @@ import { userAtom } from '@/atoms/auth';
 import User from '@/models/User';
 
 interface AuthState {
-  user: User | null;
-  getUser: () => Promise<User | null>;
-  register: (
-    name: string,
-    email: string,
-    password: string
-  ) => Promise<User | null>;
-  login: (email: string, password: string) => Promise<User | null>;
-  logout: () => Promise<void>;
+  user?: User;
+  getUser?: () => Promise<User>;
+  register?: (name: string, email: string, password: string) => Promise<User>;
+  login?: (email: string, password: string) => Promise<User>;
+  logout?: () => Promise<void>;
 }
 
-const defaultState: AuthState = {
-  user: null,
-  getUser: () => null,
-  register: () => null,
-  login: () => null,
-  logout: () => null,
-};
+export const AuthContext = createContext<AuthState>({});
 
-export const ThemeContext = createContext(defaultState);
-
-export const ThemeProvider: FC = ({ children }) => {
+export const AuthProvider: FC = ({ children }) => {
   const [user, setUser] = useRecoilState(userAtom);
 
   const getUser = async () => {
@@ -62,8 +51,8 @@ export const ThemeProvider: FC = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ user, getUser, register, login, logout }}>
+    <AuthContext.Provider value={{ user, getUser, register, login, logout }}>
       {children}
-    </ThemeContext.Provider>
+    </AuthContext.Provider>
   );
 };

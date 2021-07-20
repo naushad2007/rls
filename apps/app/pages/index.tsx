@@ -1,14 +1,19 @@
 import { NextPage } from 'next';
+import { useContext, useEffect } from 'react';
+import { GoogleLogin } from 'react-google-login';
 
 import Button from '@/components/Button';
 import Logo from '@/components/Logo';
-import AuthService from '@/services/auth.service';
+import { AuthContext } from '@/context/AuthContent';
 
 const Home: NextPage = () => {
-  const onLogin = async () => {
-    const user = await AuthService.login('im.amruth@gmail.com', 'password');
-    console.log(user);
-  };
+  const { user, login } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log('user', user);
+  }, [user]);
+
+  const onLogin = () => login('raja.rajan@gmail.com', 'password');
 
   return (
     <div className="container grid gap-8 p-8 mx-auto text-center md:text-left md:px-0 md:py-16">
@@ -23,6 +28,12 @@ const Home: NextPage = () => {
           <Button className="mt-8" onClick={onLogin}>
             Login
           </Button>
+
+          <GoogleLogin
+            clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+            buttonText="Login with Google"
+            cookiePolicy="single_host_origin"
+          />
         </div>
       </header>
 

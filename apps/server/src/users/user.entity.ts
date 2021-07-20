@@ -15,7 +15,10 @@ class User {
 
   @Column()
   @Exclude()
-  public password: string;
+  public password?: string;
+
+  @Column()
+  public provider: 'local' | 'google';
 }
 
 export default User;

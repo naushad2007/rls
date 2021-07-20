@@ -6,6 +6,7 @@ import {
 import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
+import * as session from 'express-session';
 import * as morgan from 'morgan';
 
 import { AppModule } from './app/app.module';
@@ -23,9 +24,18 @@ const bootstrap = async () => {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   // Middleware
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      cookie: { maxAge: 60 * 60 * 1000 },
+      saveUninitialized: true,
+      resave: false,
+    })
+  );
   app.use(cookieParser());
   app.use(morgan('tiny'));
   app.setGlobalPrefix(prefix);
+  app.enableCors();
 
   // Swagger
   const config = new DocumentBuilder()

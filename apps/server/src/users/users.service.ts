@@ -2,6 +2,8 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import GoogleProfile from '@/auth/interface/google-profile.interface';
+
 import CreateUserDTO from './dto/create-user.dto';
 import User from './user.entity';
 
@@ -12,7 +14,7 @@ export class UsersService {
     private readonly usersRepository: Repository<User>
   ) {}
 
-  async findById(id: number) {
+  async findById(id: number): Promise<User> {
     const user = await this.usersRepository.findOne({ id });
 
     if (user) {
@@ -25,7 +27,7 @@ export class UsersService {
     );
   }
 
-  async findByEmail(email: string) {
+  async findByEmail(email: string): Promise<User> {
     const user = await this.usersRepository.findOne({ email });
 
     if (user) {
@@ -38,8 +40,34 @@ export class UsersService {
     );
   }
 
-  async create(createUserDto: CreateUserDTO) {
-    const newUser = this.usersRepository.create(createUserDto);
+  async findOrCreate(
+    profile: GoogleProfile,
+    accessToken: string
+  ): Promise<User> {
+    const email = profile.emails[0].value;
+    const user = await this.usersRepository.findOne({ email });
+
+    if (user) {
+      return user;
+    }
+
+    const newUser = this.usersRepository.create({
+      email,
+      name: profile.displayName,
+      password: accessToken,
+      provider: profile.provider,
+    });
+
+    await this.usersRepository.save(newUser);
+
+    return newUser;
+  }
+
+  async create(createUserDto: CreateUserDTO): Promise<User> {
+    const newUser = this.usersRepository.create({
+      ...createUserDto,
+      provider: 'local',
+    });
 
     await this.usersRepository.save(newUser);
 

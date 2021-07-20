@@ -13,18 +13,14 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - database:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
+  adminer:
+    image: adminer
+    container_name: adminer
     restart: always
     depends_on:
       - postgres
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
-      PGADMIN_DEFAULT_PASSWORD: postgres
-      PGADMIN_LISTEN_PORT: 5050
     ports:
-      - 5050:5050
+      - 8080:8080
 
 volumes:
   database:

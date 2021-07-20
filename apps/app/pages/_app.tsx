@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { FC } from 'react';
 import { RecoilRoot } from 'recoil';
 
+import { AuthProvider } from '@/context/AuthContent';
 import { ThemeProvider } from '@/context/ThemeContext';
 import ModalContainer from '@/modals/ModalContainer';
 
@@ -27,9 +28,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <ThemeProvider>
-        <Component {...pageProps} />
+        <AuthProvider>
+          <Component {...pageProps} />
 
-        <ModalContainer />
+          <ModalContainer />
+        </AuthProvider>
       </ThemeProvider>
     </RecoilRoot>
   );
