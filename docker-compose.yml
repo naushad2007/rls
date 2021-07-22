@@ -21,6 +21,19 @@ services:
       - postgres
     ports:
       - 8080:8080
+  reactive-resume:
+    build:
+      context: .
+    container_name: reactive-resume
+    ports: 
+      - 3000:3000
+      - 4000:4000
+    env_file: .env
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
 
 volumes:
   database:

@@ -2,8 +2,10 @@
   "eslint.format.enable": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.workingDirectories": [
-    "apps/app",
-    "apps/server",
+    "app",
+    "server"
   ],
-  "git.ignoreLimitWarning": true
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
