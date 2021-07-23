@@ -4,9 +4,6 @@ const validationSchema = Joi.object({
   JWT_SECRET: Joi.string().required(),
   JWT_EXPIRATION_TIME: Joi.number().required(),
 
-  GOOGLE_CLIENT_ID: Joi.string(),
-  GOOGLE_CLIENT_SECRET: Joi.string(),
-
   POSTGRES_HOST: Joi.string().default('localhost'),
   POSTGRES_PORT: Joi.number().default(5432),
   POSTGRES_USER: Joi.string().required(),
@@ -16,7 +13,7 @@ const validationSchema = Joi.object({
   NODE_ENV: Joi.string()
     .valid('development', 'production', 'test', 'provision')
     .default('development'),
-  PORT: Joi.number().default(3000),
+  PORT: Joi.number().default(4000),
 });
 
 export default validationSchema;
