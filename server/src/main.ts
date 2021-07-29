@@ -12,7 +12,7 @@ import { AppModule } from './app/app.module';
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);
-  const port = process.env.SERVER_PORT || 4000;
+  const port = process.env.SERVER_PORT;
   const prefix = 'api';
 
   // Pipes
@@ -25,6 +25,7 @@ const bootstrap = async () => {
   // Middleware
   app.use(cookieParser());
   app.use(morgan('tiny'));
+
   app.setGlobalPrefix(prefix);
   app.enableCors();
 

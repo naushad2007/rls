@@ -1,14 +1,18 @@
-import axios from 'axios';
-import { createContext, FC } from 'react';
-import { useRecoilState } from 'recoil';
+import axios from "axios";
+import { createContext, FC, useEffect } from "react";
+import { useRecoilState } from "recoil";
 
-import { userAtom } from '@/atoms/auth';
-import User from '@/models/User';
+import { userAtom } from "@/atoms/auth";
+import User from "@/models/User";
 
 interface AuthState {
   user: User | null;
   getUser: () => Promise<User | null>;
-  register: (name: string, email: string, password: string) => Promise<User | null>;
+  register: (
+    name: string,
+    email: string,
+    password: string
+  ) => Promise<User | null>;
   login: (email: string, password: string) => Promise<User | null>;
   logout: () => Promise<void>;
 }
@@ -19,7 +23,7 @@ const defaultState: AuthState = {
   register: async () => null,
   login: async () => null,
   logout: async () => {},
-}
+};
 
 export const AuthContext = createContext<AuthState>(defaultState);
 
@@ -27,13 +31,13 @@ export const AuthProvider: FC = ({ children }) => {
   const [user, setUser] = useRecoilState(userAtom);
 
   const getUser = async () => {
-    const { data: user } = await axios.get<User>('/api/auth/me');
+    const { data: user } = await axios.get<User>("/api/auth/me");
     setUser(user);
     return user;
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const { data: user } = await axios.post<User>('/api/auth/register', {
+    const { data: user } = await axios.post<User>("/api/auth/register", {
       name,
       email,
       password,
@@ -43,7 +47,7 @@ export const AuthProvider: FC = ({ children }) => {
   };
 
   const login = async (email: string, password: string) => {
-    const { data: user } = await axios.post<User>('/api/auth/login', {
+    const { data: user } = await axios.post<User>("/api/auth/login", {
       email,
       password,
     });
@@ -52,7 +56,7 @@ export const AuthProvider: FC = ({ children }) => {
   };
 
   const logout = async (): Promise<void> => {
-    await axios.post('/api/auth/logout');
+    await axios.post("/api/auth/logout");
     setUser(null);
     return;
   };

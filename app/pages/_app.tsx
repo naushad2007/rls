@@ -1,18 +1,18 @@
-import 'tailwindcss/tailwind.css';
-import '@/styles/globals.css';
+import "tailwindcss/tailwind.css";
+import "@/styles/globals.css";
 
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { FC } from 'react';
-import { RecoilRoot } from 'recoil';
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { FC } from "react";
+import { RecoilRoot } from "recoil";
 
-import { AuthProvider } from '@/context/AuthContent';
-import { ThemeProvider } from '@/context/ThemeContext';
-import ModalContainer from '@/modals/ModalContainer';
+import { AuthProvider } from "@/context/AuthContent";
+import { ThemeProvider } from "@/context/ThemeContext";
+import ModalContainer from "@/modals/ModalContainer";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-  const name = 'Reactive Resume';
-  const description = 'A free and open-source resume builder';
+  const name = "Reactive Resume";
+  const description = "A free and open-source resume builder";
 
   return (
     <RecoilRoot>
