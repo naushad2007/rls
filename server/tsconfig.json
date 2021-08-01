@@ -17,7 +17,7 @@
       "@/auth/*": ["auth/*"],
       "@/config/*": ["config/*"],
       "@/database/*": ["database/*"],
-      "@/users/*": ["users/*"],
+      "@/users/*": ["users/*"]
     }
   }
 }

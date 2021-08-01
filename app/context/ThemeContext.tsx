@@ -1,9 +1,9 @@
-import { createContext, FC, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { createContext, FC, useEffect } from "react";
+import { useRecoilState } from "recoil";
 
-import { themeAtom } from '@/atoms/theme';
-import themeConfig from '@/config/theme';
-import { ThemeOptions } from '@/types/theme';
+import { themeAtom } from "@/atoms/theme";
+import themeConfig from "@/config/theme";
+import { ThemeOptions } from "@/types/theme";
 
 interface ThemeState {
   theme: ThemeOptions;
@@ -11,7 +11,7 @@ interface ThemeState {
 }
 
 const defaultState: ThemeState = {
-  theme: 'Dark',
+  theme: "Dark",
   setTheme: () => {},
 };
 

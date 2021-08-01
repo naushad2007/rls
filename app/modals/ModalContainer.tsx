@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import AuthModal from './AuthModal';
+import AuthModal from "./AuthModal";
 
 const ModalContainer: FC = () => {
   return <AuthModal />;

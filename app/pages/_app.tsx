@@ -6,7 +6,7 @@ import Head from "next/head";
 import { FC } from "react";
 import { RecoilRoot } from "recoil";
 
-import { AuthProvider } from "@/context/AuthContent";
+import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import ModalContainer from "@/modals/ModalContainer";
 

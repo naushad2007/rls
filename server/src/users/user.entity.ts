@@ -1,5 +1,5 @@
-import { Exclude } from 'class-transformer';
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Exclude } from "class-transformer";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 class User {
@@ -18,7 +18,7 @@ class User {
   public password?: string;
 
   @Column()
-  public provider: 'local' | 'google';
+  public provider: "local" | "google";
 }
 
 export default User;

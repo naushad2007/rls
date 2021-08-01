@@ -1,18 +1,9 @@
 import { NextPage } from "next";
-import { useContext } from "react";
 
 import Button from "@/components/Button";
 import Logo from "@/components/Logo";
-import { AuthContext } from "@/context/AuthContent";
 
 const Home: NextPage = () => {
-  const { getUser, login, register } = useContext(AuthContext);
-
-  const onLogin = () => login("im.amruth@gmail.com", "password");
-  const onRegister = () =>
-    register("Amruth Pillai", "im.amruth@gmail.com", "password");
-  const onGetUser = async () => console.log(await getUser());
-
   return (
     <div className="container grid gap-8 p-8 mx-auto text-center md:text-left md:px-0 md:py-16">
       <header className="flex flex-col items-center gap-8 md:flex-row">
@@ -25,9 +16,7 @@ const Home: NextPage = () => {
           </p>
 
           <div className="mt-8">
-            <Button onClick={onLogin}>Login</Button>
-            <Button onClick={onRegister}>Register</Button>
-            <Button onClick={onGetUser}>Get User</Button>
+            <Button onClick={() => {}}>Login</Button>
           </div>
         </div>
       </header>

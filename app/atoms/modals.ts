@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const authModalAtom = atom({
-  key: 'authModal',
+  key: "authModal",
   default: false,
 });

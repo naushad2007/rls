@@ -1,9 +1,9 @@
-import cx from 'classnames';
-import { FC } from 'react';
+import cx from "classnames";
+import { FC } from "react";
 
-import styles from '@/styles/components/Button.module.css';
-import ButtonProps from '@/types/components/Button';
-import { handleKeyUp } from '@/utils/index';
+import styles from "@/styles/components/Button.module.css";
+import ButtonProps from "@/types/components/Button";
+import { handleKeyUp } from "@/utils/index";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -21,9 +21,10 @@ const Button: FC<ButtonProps> = ({
       className={cx(styles.button, className, {
         [styles.outline]: outline,
         [styles.remove]: isDelete,
-      })}>
+      })}
+    >
       {Icon && <Icon className="mr-3" />}
-      {isLoading ? 'Loading...' : children}
+      {isLoading ? "Loading..." : children}
     </button>
   );
 };

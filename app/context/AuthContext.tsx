@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, FC, useEffect } from "react";
+import { createContext, FC } from "react";
 import { useRecoilState } from "recoil";
 
 import { userAtom } from "@/atoms/auth";
@@ -14,7 +14,7 @@ interface AuthState {
     password: string
   ) => Promise<User | null>;
   login: (email: string, password: string) => Promise<User | null>;
-  logout: () => Promise<void>;
+  logout: () => Promise<null>;
 }
 
 const defaultState: AuthState = {
@@ -22,7 +22,7 @@ const defaultState: AuthState = {
   getUser: async () => null,
   register: async () => null,
   login: async () => null,
-  logout: async () => {},
+  logout: async () => null,
 };
 
 export const AuthContext = createContext<AuthState>(defaultState);
@@ -55,10 +55,10 @@ export const AuthProvider: FC = ({ children }) => {
     return user;
   };
 
-  const logout = async (): Promise<void> => {
+  const logout = async () => {
     await axios.post("/api/auth/logout");
     setUser(null);
-    return;
+    return null;
   };
 
   return (

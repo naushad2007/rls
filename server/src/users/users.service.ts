@@ -1,15 +1,15 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
 
-import CreateUserDTO from './dto/create-user.dto';
-import User from './user.entity';
+import CreateUserDTO from "./dto/create-user.dto";
+import User from "./user.entity";
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private readonly usersRepository: Repository<User>,
+    private readonly usersRepository: Repository<User>
   ) {}
 
   async findById(id: number): Promise<User> {
@@ -21,7 +21,7 @@ export class UsersService {
 
     throw new HttpException(
       `Could not find user with id ${id}.`,
-      HttpStatus.NOT_FOUND,
+      HttpStatus.NOT_FOUND
     );
   }
 
@@ -33,15 +33,15 @@ export class UsersService {
     }
 
     throw new HttpException(
-      'Incorrect username/password, please try again.',
-      HttpStatus.NOT_FOUND,
+      "Incorrect username/password, please try again.",
+      HttpStatus.NOT_FOUND
     );
   }
 
   async create(createUserDto: CreateUserDTO): Promise<User> {
     const newUser = this.usersRepository.create({
       ...createUserDto,
-      provider: 'local',
+      provider: "local",
     });
 
     await this.usersRepository.save(newUser);
