@@ -1,9 +1,19 @@
 {
+  "css.validate": false,
+  "editor.formatOnSave": true,
   "eslint.format.enable": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "eslint.workingDirectories": [
-    "app",
-    "server"
-  ],
-  "editor.formatOnSave": true
+  "eslint.workingDirectories": ["app", "server"],
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  }
 }

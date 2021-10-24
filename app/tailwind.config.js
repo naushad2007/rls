@@ -36,6 +36,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require("@tailwindcss/forms"),
     plugin(function ({ addUtilities }) {
       const flexCentered = {
         ".flex-centered": {
@@ -45,7 +46,7 @@ module.exports = {
         },
       };
 
-      addUtilities(flexCentered);
+      addUtilities(flexCentered, ["responsive"]);
     }),
   ],
 };

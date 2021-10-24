@@ -17,7 +17,7 @@
 }
 
 .button:focus {
-  @apply outline-none;
+  @apply outline-none ring-2;
 }
 
 .button.outline {
@@ -29,7 +29,7 @@
 }
 
 .button.outline:focus {
-  @apply outline-none;
+  @apply outline-none ring-2;
 }
 
 .button.remove {

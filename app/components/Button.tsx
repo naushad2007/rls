@@ -12,11 +12,12 @@ const Button: FC<ButtonProps> = ({
   outline = false,
   isLoading = false,
   isDelete = false,
-  onClick,
+  onClick = () => {},
 }) => {
   return (
     <button
-      onClick={onClick ?? null}
+      tabIndex={0}
+      onClick={onClick}
       onKeyUp={(e) => handleKeyUp(e, onClick)}
       className={cx(styles.button, className, {
         [styles.outline]: outline,
