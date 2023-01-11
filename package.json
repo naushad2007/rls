@@ -43,7 +43,7 @@
     "gatsby-plugin-webfonts": "^2.1.0",
     "gatsby-source-filesystem": "^3.8.0",
     "gatsby-source-gravatar": "^1.0.1",
-    "gatsby-transformer-remark": "^4.5.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.8.0",
     "i18next": "^20.3.2",
     "lodash": "^4.17.21",
